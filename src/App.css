@@ -2,7 +2,7 @@
 
 body {
   font-family: Arial, sans-serif;
-  background-color: #f8f8f8;
+  background-color: #121212;
   margin: 0;
   padding: 0;
 }
@@ -16,8 +16,10 @@ body {
 .container > div {
   flex: 1;
   padding: 20px;
-  background-color: #fff;
+  background-color: #242424;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  color: #fff;
 }
 
 ul {
@@ -34,7 +36,7 @@ button {
   padding: 10px 20px;
   font-size: 16px;
   border: none;
-  background-color: #fff;
+  background-color: #242424;
   cursor: pointer;
 }
 
@@ -55,6 +57,23 @@ button:hover {
 }
 
 .search {
-  width: 250px;
-  height: 30px;
+  width: 350px;
+  height: 20px;
+  border-radius: 30px;
+  border: none;
+  padding: 15px;
+  background-color: #242424;
+  color: #ffffff;
+}
+
+.search::placeholder {
+  font-size: 0.9rem;
+}
+
+.logo-pic {
+  width: 150px;
+}
+
+.textcolor {
+  color: #fff;
 }

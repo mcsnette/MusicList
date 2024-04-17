@@ -176,12 +176,12 @@ function NavBar({ children, onSearch }) {
 }
 
 function Logo() {
-  return <h1>Music App Logo</h1>;
+  return <img src="/images/logo1.png" alt="Logo" className="logo-pic" />;
 }
 
 function NumberResult({ music }) {
   return (
-    <p>
+    <p className="textcolor">
       Found <strong>{music.length}</strong> results
     </p>
   );
@@ -199,7 +199,7 @@ function Search({ onSearch }) {
     <input
       className="search"
       type="text"
-      placeholder="Search music..."
+      placeholder="What do you want to play?"
       value={query}
       onChange={handleSearch}
     />
@@ -234,7 +234,7 @@ function Music({ music, playlist, setPlaylist }) {
             {playlist.some((item) => item.id === musicItem.id) ? (
               <i className="fa fa-heart" style={{ color: "#1db954" }}></i>
             ) : (
-              <i className="fa fa-heart" style={{ color: "black" }}></i>
+              <i className="fa fa-heart" style={{ color: "#fff" }}></i>
             )}
           </button>
         </li>
@@ -250,7 +250,7 @@ function Box({ children }) {
 function Playlist({ playlist }) {
   return (
     <>
-      <h2>Playlist</h2>
+      <h2>Favorites</h2>
 
       <ul>
         {playlist.map((music) => (
