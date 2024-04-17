@@ -207,6 +207,8 @@ function Search({ onSearch }) {
 }
 
 function Music({ music, playlist, setPlaylist }) {
+  const [sortBy, setSortBy] = useState("");
+
   const addToPlayList = (music) => {
     const index = playlist.findIndex((item) => item.id === music.id);
     if (index === -1) {
@@ -217,11 +219,34 @@ function Music({ music, playlist, setPlaylist }) {
     }
   };
 
+  const sortByTitle = () => {
+    const sortedMusic = [...music].sort((a, b) =>
+      a.title.localeCompare(b.title)
+    );
+    return sortedMusic;
+  };
+
+  const handleSortChange = (e) => {
+    const selectedSort = e.target.value;
+    setSortBy(selectedSort);
+  };
+
+  let sortedMusic;
+  if (sortBy === "title") {
+    sortedMusic = sortByTitle();
+  } else {
+    sortedMusic = music;
+  }
+
   return (
     <ul>
       <h2>Music List</h2>
+      <select className="select" value={sortBy} onChange={handleSortChange}>
+        <option value="">Sort By</option>
+        <option value="title">Sort By: Title</option>
+      </select>
 
-      {music.map((musicItem) => (
+      {sortedMusic.map((musicItem) => (
         <li
           key={musicItem.id}
           style={{ display: "flex", alignItems: "center", marginBottom: "8px" }}
